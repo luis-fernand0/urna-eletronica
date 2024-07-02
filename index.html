@@ -11,7 +11,9 @@
     <form class="urna" action="">
         <div class="input-logo">
             <div class="div-input">
-                <input class="input-active input-disabled" type="number" readonly>
+                <input id="input-value" class="input-active input-disabled" type="number" readonly>
+
+                <p id="nome-aluno" class="nome-aluno"></p>
             </div>
     
             <div class="logo-justica-titulo">
@@ -35,25 +37,25 @@
 
             <div class="btns">
 
-                <button type="button" id="btn-teste" class="btn-teclado" value="1">1</button>
+                <input type="button" name="aluno1" id="btn-1" class="btn-teclado" value="1" onclick="mostrarValorBtn(value)" />
 
-                <button type="button" class="btn-teclado" value="2">2</button>
+                <input type="button" name="aluno2" id="btn-2" class="btn-teclado" value="2" onclick="mostrarValorBtn(value)" />
 
-                <button type="button" class="btn-teclado" value="3">3</button>
+                <input type="button" id="btn-3" class="btn-teclado" value="3" onclick="mostrarValorBtn(value)" />
 
-                <button type="button" class="btn-teclado" value="4">4</button>
+                <input type="button" id="btn-4" class="btn-teclado" value="4" onclick="mostrarValorBtn(value)" />
 
-                <button type="button" class="btn-teclado" value="5">5</button>
+                <input type="button" id="btn-5" class="btn-teclado" value="5" onclick="mostrarValorBtn(value)" />
 
-                <button type="button" class="btn-teclado" value="6">6</button>
+                <input type="button" id="btn-6" class="btn-teclado" value="6" onclick="mostrarValorBtn(value)" />
 
-                <button type="button" class="btn-teclado" value="7">7</button>
+                <input type="button" id="btn-7" class="btn-teclado" value="7" onclick="mostrarValorBtn(value)" />
 
-                <button type="button" class="btn-teclado" value="8">8</button>
+                <input type="button" id="btn-8" class="btn-teclado" value="8" onclick="mostrarValorBtn(value)" />
 
-                <button type="button" class="btn-teclado" value="9">9</button>
+                <input type="button" id="btn-9" class="btn-teclado" value="9" onclick="mostrarValorBtn(value)" />
 
-                <button type="button" class="btn-teclado" value="0">0</button>
+                <input type="button" id="btn-0" class="btn-teclado" value="0" onclick="mostrarValorBtn(value)" />
 
                 <div class="confirm-teclado">
                     <button class="btns-confirm btn-branco">BRANCO</button>

@@ -1,11 +1,18 @@
 const input = document.querySelector('.input-active')
 const logo = document.querySelector('.logo-justica-titulo')
-const valorBtn = document.querySelector('.btn-teclado')
+const inputValue = document.getElementById('input-value')
+const nomeAluno = document.getElementById('nome-aluno')
+const aluno = document.getElementsByName('aluno1')
 
-valorBtn.addEventListener('click', (e) => {
-    e.preventDefault()
-    console.log('teste-active')
-})
+function mostrarValorBtn (num) {
+    inputValue.value = num
+
+    if (num === '1') {
+        nomeAluno.innerHTML = 'Nome da menina que não sei'
+    } else if (num === '2') {
+        nomeAluno.innerHTML = `Nome do menino que não sei`
+    }   
+}
 
 function sumirLogo () {
     input.classList.remove('input-disabled')
