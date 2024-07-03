@@ -6,9 +6,11 @@ const anularVoto = document.getElementById('btn-branco')
 const corrigirVoto = document.getElementById('btn-corrigir')
 const confirmarVoto = document.getElementById('btn-confirmar')
 const text = document.getElementById('text')
+const audioPlay = document.querySelector('audio')
 
 function mostrarValorBtn (num) {
     inputValue.value = num
+    audioPlay.play()
 
     if (num === '1') {
         nomeAluno.innerHTML = 'Maria e Gabi'
@@ -22,6 +24,7 @@ function mostrarValorBtn (num) {
 function anularInput() {
     input.classList.add('input-disabled')
     text.classList.remove('text-disabled')
+    audioPlay.play()
 
     function reload () {
         window.location.reload(true)
@@ -32,11 +35,13 @@ function anularInput() {
 function corrigirInput () {
     nomeAluno.innerHTML = ``
     inputValue.value = ``
+    audioPlay.play()
 }
 
 function confirmarInput () {
     input.classList.add('input-disabled')
     text.classList.remove('text-disabled')
+    audioPlay.play()
 
     function reload () {
         window.location.reload(true)
