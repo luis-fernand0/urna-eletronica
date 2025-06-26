@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+</head>
+<body>
+    <p id="chapas">
+        carregando...
+    </p>
+
+    <button onclick="limparVotacion()">
+        limpar votação
+    </button>
+    <script>
+        let chapa = localStorage.getItem('Chapa_1')
+        if(chapa) {
+            document.getElementById('chapas').innerHTML = `Chapa 1 ta com ${chapa}`
+        }
+
+        function limparVotacion() {
+            localStorage.clear()
+            window.location.href = 'index.html'
+            return
+        }
+    </script>
+
+</body>
+</html>
