@@ -1,23 +1,22 @@
-const input = document.querySelector('.div-input')
-const logo = document.querySelector('.logo-justica-titulo')
-const inputValue = document.getElementById('input-value')
-const chapa = document.getElementById('chapa')
 const anularVoto = document.getElementById('btn-branco')
 const corrigirVoto = document.getElementById('btn-corrigir')
 const confirmarVoto = document.getElementById('btn-confirmar')
-const text = document.getElementById('text')
+
+const logo = document.querySelector('.logo-justica-titulo')
+const codChapa = document.getElementById('chapa')
+const chapa = document.getElementById('chapa-text')
+const text = document.querySelector('.container-text-fim')
 const audioPlay = document.querySelector('audio')
 
 function mostrarValorBtn (num) {
-    inputValue.value = num
     audioPlay.play()
 
+    codChapa.innerHTML = num
     chapa.innerHTML = 'Chapa ' + num
 }
 
 function anularInput() {
-    input.classList.add('input-disabled')
-    text.classList.remove('text-disabled')
+    text.classList.remove('disabled')
     audioPlay.play()
 
     function reload () {
@@ -28,21 +27,22 @@ function anularInput() {
 
 function corrigirInput () {
     chapa.innerHTML = ``
-    inputValue.value = ``
+    codChapa.textContent = ``
     audioPlay.play()
 }
 
 function confirmarInput () {
-    if(localStorage.getItem(`Chapa_${inputValue.value}`)) {
+    let chapa = Number(codChapa.textContent)
+    if(localStorage.getItem(`Chapa_${chapa}`)) {
 
-        let count = localStorage.getItem(`Chapa_${inputValue.value}`)
-        localStorage.setItem(`Chapa_${inputValue.value}`, Number(count) + 1)
+        let count = localStorage.getItem(`Chapa_${chapa}`)
+        localStorage.setItem(`Chapa_${chapa}`, Number(count) + 1)
         
     } else {
-        localStorage.setItem(`Chapa_${inputValue.value}`, 1)
+        localStorage.setItem(`Chapa_${chapa}`, 1)
     }
-    input.classList.add('input-disabled')
-    text.classList.remove('text-disabled')
+    codChapa.innerHTML = ''
+    text.classList.remove('disabled')
     audioPlay.play()
 
     function reload () {
@@ -52,7 +52,6 @@ function confirmarInput () {
 }
 
 function sumirLogo () {
-    input.classList.remove('input-disabled')
     logo.classList.add('logo-justica-titulo-disabled')
 }
 setTimeout(sumirLogo, 3000)
