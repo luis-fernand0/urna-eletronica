@@ -7,24 +7,26 @@
     <link rel="stylesheet" href="src/style/index.css">
     <title>Urna Eletronica</title>
 </head>
+
 <body>
     <form class="urna" action="">
-        <div class="input-logo">
-            <div class="div-input input-disabled">
-                <input id="input-value" class="input-active" type="number" readonly>
+        <div class="logo-justica-titulo">
+            <img class="logo" src="src/images/justica-eleitoral-logo.png" alt="logo-justica-eleitoral">
 
-                <p id="chapa" class="nome-aluno"></p>
-            </div>
-    
-            <div class="logo-justica-titulo">
-                <img class="logo" src="src/images/justica-eleitoral-logo.png" alt="logo-justica-eleitoral">
-    
-                <h1 class="titulo">
-                    JUSTIÇA ELEITORAL
-                </h1>
-            </div>
+            <h1 class="titulo">
+                JUSTIÇA ELEITORAL
+            </h1>
+        </div>
+        
+        <div class="container-text-fim active disabled">
+            <p id="text">FIM</p>
+        </div>
 
-            <p id="text" class="text-active text-disabled">FIM</p>
+        <div class="container-chapas">
+            <div class="container-cod-chapa">
+                <p id="chapa" class="cod-chapa"></p>
+            </div>
+            <p id="chapa-text" class="text-chapa"></p>
         </div>
 
         <div class="teclado">
@@ -32,9 +34,9 @@
                 <img class="logo logo-header" src="src/images/justica-eleitoral-logo.png" alt="logo-justica-eleitoral">
                 <h2 class="titulo-header">
                     JUSTIÇA
-                    <br/>
+                    <br />
                     ELEITORAL
-                </h1>
+                    </h1>
             </div>
 
             <div class="btns">
@@ -53,10 +55,10 @@
                         CORRIGIR
                     </button>
 
-                    <button id="btn-confirmar" class="btns-confirm btn-confirmar" type="button" onclick="confirmarInput()">
+                    <button id="btn-confirmar" class="btns-confirm btn-confirmar" type="button"
+                        onclick="confirmarInput()">
                         CONFIRMAR
                     </button>
-
                 </div>
             </div>
 
@@ -65,4 +67,5 @@
 
     <script src="src/js/index.js"></script>
 </body>
+
 </html>
