@@ -1,23 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/style/resultado.css">
     <title>Resultados</title>
 </head>
-<body>
-    <p id="chapas">
-        carregando...
-    </p>
 
-    <button onclick="limparVotacion()">
-        limpar votação
-    </button>
+<body>
+    <div class="container-resultados-btn">
+        <div id="resultado">
+            <p id="sem-votos" class="text-result">
+                Até o momento nenhuma chapa teve VOTO...
+            </p>
+        </div>
+
+        <button class="btn-limpar" onclick="limparVotacion()">
+            LIMPAR VOTAÇÃO
+        </button>
+    </div>
     <script>
-        let chapa = localStorage.getItem('Chapa_1')
-        if(chapa) {
-            document.getElementById('chapas').innerHTML = `Chapa 1 ta com ${chapa}`
+        let ganhador = {}
+        for (let i = 0; i < localStorage.length; i++) {
+            let chapa = localStorage.getItem(`Chapa_${i + 1}`)
+
+            if (chapa) {
+                let semVotos = document.getElementById('sem-votos')
+                let divPai = document.getElementById('resultado')
+                if (semVotos) {
+                    divPai.removeChild(semVotos)
+                }
+                let tagP = document.createElement('p')
+                tagP.classList.add('text-result')
+                let texto = document.createTextNode(`Chapa ${i + 1}: ${chapa} VOTO(s)`)
+                tagP.appendChild(texto)
+                divPai.appendChild(tagP)
+
+                if (ganhador.votos < chapa) {
+                    ganhador = {
+                        chapa: i + 1,
+                        votos: chapa
+                    }
+                }
+                if (ganhador.votos === chapa) {
+                    ganhador = 'EMPATE'
+                }
+            }
         }
+        
+        let divPai = document.getElementById('resultado')
+        let tagP = document.createElement('p')
+        tagP.classList.add('text-result')
+        let texto = document.createTextNode(`Ganhador: Chapa ${ganhador?.chapa} com ${ganhador?.votos}`)
+        tagP.appendChild(texto)
+        divPai.appendChild(tagP)
 
         function limparVotacion() {
             localStorage.clear()
@@ -27,4 +64,5 @@
     </script>
 
 </body>
+
 </html>
